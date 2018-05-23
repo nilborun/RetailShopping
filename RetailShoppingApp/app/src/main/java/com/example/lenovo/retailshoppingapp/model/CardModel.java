@@ -1,4 +1,4 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.model;
 
 public class CardModel {
     private String mUrl;

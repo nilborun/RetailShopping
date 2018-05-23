@@ -1,4 +1,4 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.UI.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.example.lenovo.retailshoppingapp.R;
 
 public class AccountOpenFragment extends Fragment {
     TextInputLayout mWrapperFirstName, mWrapperLastName, mWrapperEmail, mWrapperPassword, mWrapperPhoneNo;

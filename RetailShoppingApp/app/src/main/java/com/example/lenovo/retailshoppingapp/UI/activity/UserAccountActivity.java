@@ -1,7 +1,5 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.UI.activity;
 
-import android.content.Intent;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -14,6 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.example.lenovo.retailshoppingapp.R;
+import com.example.lenovo.retailshoppingapp.UI.fragment.AccountOpenFragment;
+import com.example.lenovo.retailshoppingapp.UI.fragment.LoginFragment;
 
 import java.util.ArrayList;
 import java.util.List;

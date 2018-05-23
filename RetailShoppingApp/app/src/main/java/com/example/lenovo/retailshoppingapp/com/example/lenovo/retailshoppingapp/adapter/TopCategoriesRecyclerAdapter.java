@@ -1,8 +1,6 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
@@ -10,8 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
+import com.example.lenovo.retailshoppingapp.R;
+import com.example.lenovo.retailshoppingapp.model.TopCategoryModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

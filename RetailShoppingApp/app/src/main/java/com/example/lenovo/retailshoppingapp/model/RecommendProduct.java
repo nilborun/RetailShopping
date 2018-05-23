@@ -1,12 +1,12 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.model;
 
-public class FeatureProduct {
+public class RecommendProduct {
     private String mImageUrl;
     private String mProductTitle;
     private Integer mPrice;
     private Float mProductRating;
 
-    public FeatureProduct(String imageUrl, String productTitle, Integer price, Float productRating) {
+    public RecommendProduct(String imageUrl, String productTitle, Integer price, Float productRating) {
         this.mImageUrl = imageUrl;
         this.mProductTitle = productTitle;
         this.mPrice = price;

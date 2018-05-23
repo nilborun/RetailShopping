@@ -56,11 +56,11 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <FrameLayout
-                        android:id="@+id/fContainer"
+                    <include
+                        layout="@layout/layout_top_banner"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
                     <include
@@ -77,6 +77,18 @@
 
                     <include
                         layout="@layout/layout_offer_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
+
+                    <include
+                        layout="@layout/layout_product_categories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" />
+
+                    <include
+                        layout="@layout/layout_recommend_products"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp" />

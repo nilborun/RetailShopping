@@ -1,42 +1,40 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.UI.activity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.asksira.loopingviewpager.LoopingViewPager;
+import com.example.lenovo.retailshoppingapp.R;
+import com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter.BannerAdapter;
+import com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter.FeatureProductsAdapter;
+import com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter.ProductCategoryAdapter;
+import com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter.RecommendProductsAdapter;
+import com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter.TopBannerAdapter;
+import com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter.TopCategoriesRecyclerAdapter;
+import com.example.lenovo.retailshoppingapp.model.CardModel;
+import com.example.lenovo.retailshoppingapp.model.FeatureProduct;
+import com.example.lenovo.retailshoppingapp.model.ProductCategories;
+import com.example.lenovo.retailshoppingapp.model.RecommendProduct;
+import com.example.lenovo.retailshoppingapp.model.TopCategoryModel;
+import com.example.lenovo.retailshoppingapp.util.SpaceItemDecoration;
 import com.example.lib.Deck;
-import com.joanzapata.iconify.Icon;
-import com.joanzapata.iconify.widget.IconButton;
 import com.rd.PageIndicatorView;
 
 
@@ -51,8 +49,9 @@ public class HomeActivity extends AppCompatActivity {
     private NavigationView mNavView;
 
     private ActionBarDrawerToggle mToggle;
-    private RecyclerView mTopCatoriesRecylerview, mFeatureProductsRecyclerView;
+    private RecyclerView mTopCatoriesRecylerview, mFeatureProductsRecyclerView, mProductCategoryRecyclerview, mRecommendsRecyclerView;
     private LoopingViewPager mBannerPager;
+    private Deck mDeckpager;
 
 
     private static final int SAMPLE2_ID = 34535;
@@ -68,8 +67,11 @@ public class HomeActivity extends AppCompatActivity {
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mNavView = findViewById(R.id.nav_view);
         mToggle = setUpDrawerToggle();
+        mDeckpager = findViewById(R.id.deck_pager);
         mTopCatoriesRecylerview = findViewById(R.id.rcv_top_categories_items);
         mFeatureProductsRecyclerView = findViewById(R.id.rcv_featured_categories);
+        mProductCategoryRecyclerview = findViewById(R.id.rcv_product_categories);
+        mRecommendsRecyclerView = findViewById(R.id.rcv_recommend_categories_items);
         mBannerPager = findViewById(R.id.viewpager_banner);
 
 
@@ -84,6 +86,8 @@ public class HomeActivity extends AppCompatActivity {
         showTopCategories();
         showFeatureProducts();
         showBanner();
+        showProductCategories();
+        showRecommendProducts();
     }
 
     private ActionBarDrawerToggle setUpDrawerToggle() {
@@ -142,19 +146,42 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void showLatestProductInSlider() {
-        Fragment fragment = null;
-        Class FragmentClass = ThirdFragment.class;
+//        Fragment fragment = null;
+//        Class FragmentClass = ThirdFragment.class;
+//
+//        try {
+//            fragment = (Fragment) FragmentClass.newInstance();
+//        } catch (InstantiationException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction transaction = fragmentManager.beginTransaction();
+//        transaction.replace(R.id.fContainer, fragment).commit();
+        List<CardModel> models = new ArrayList<CardModel>();
 
-        try {
-            fragment = (Fragment) FragmentClass.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fContainer, fragment).commit();
+        CardModel c1 = new CardModel("https://i.imgur.com/b4mJrHr.jpg", "Image 1");
+        CardModel c2 = new CardModel("https://i.imgur.com/DA7LGKW.jpg", "Image 2");
+        CardModel c3 = new CardModel("https://i.imgur.com/XyiD2t3.jpg", "Image 3");
+        CardModel c4 = new CardModel("https://i.imgur.com/qr1hglb.jpg", "Image 4");
+        CardModel c5 = new CardModel("https://i.imgur.com/XIIFsKa.jpg", "Image 5");
+
+        models.add(c1);
+        models.add(c2);
+        models.add(c3);
+        models.add(c4);
+        models.add(c5);
+
+
+        mDeckpager.setOffscreenPageLimit(5);
+        mDeckpager.setClipToPadding(false);
+        int dpValue = 30; // margin in dips
+        float d = getResources().getDisplayMetrics().density;
+        int margin = (int) (dpValue * d);
+        mDeckpager.setPadding(margin, 0, margin, 0);
+        TopBannerAdapter adapter = new TopBannerAdapter(this, models);
+        mDeckpager.setAdapter(adapter);
     }
 
     private void showTopCategories() {
@@ -234,6 +261,66 @@ public class HomeActivity extends AppCompatActivity {
 
         BannerAdapter adapter = new BannerAdapter(this, banners, true);
         mBannerPager.setAdapter(adapter);
+
+
+    }
+
+    private void showProductCategories() {
+        ProductCategories category1 = new ProductCategories("https://i.imgur.com/C3l2hcf.png", "Smart Phone", 80);
+        ProductCategories category2 = new ProductCategories("https://i.imgur.com/tk4yzBw.jpg", "Computer", 45);
+        ProductCategories category3 = new ProductCategories("https://i.imgur.com/3u3W9O4.jpg", "Camera", 20);
+        ProductCategories category4 = new ProductCategories("https://i.imgur.com/jYWtkiR.jpg", "Gadget", 80);
+        ProductCategories category5 = new ProductCategories("https://i.imgur.com/I4U5D3y.jpg", "Clothes", 40);
+        ProductCategories category6 = new ProductCategories("https://i.imgur.com/I4U5D3y.jpg", "Clothes", 40);
+        ProductCategories category7 = new ProductCategories("https://i.imgur.com/I4U5D3y.jpg", "Clothes", 40);
+        ProductCategories category8 = new ProductCategories("https://i.imgur.com/I4U5D3y.jpg", "Clothes", 40);
+
+        List<ProductCategories> categories = new ArrayList<>();
+        categories.add(category1);
+        categories.add(category2);
+        categories.add(category3);
+        categories.add(category4);
+        categories.add(category5);
+        categories.add(category6);
+        categories.add(category7);
+        categories.add(category8);
+
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        mProductCategoryRecyclerview.setLayoutManager(layoutManager);
+
+        SpaceItemDecoration itemDecoration = new SpaceItemDecoration(30, 10);
+        mProductCategoryRecyclerview.addItemDecoration(itemDecoration);
+
+        ProductCategoryAdapter adapter = new ProductCategoryAdapter(this, categories);
+        mProductCategoryRecyclerview.setAdapter(adapter);
+
+    }
+
+    private void showRecommendProducts() {
+
+        RecommendProduct product1 = new RecommendProduct("https://i.imgur.com/xgIhhHH.jpg", "Men Jeans Pant", 1450, 3.5f);
+        RecommendProduct product2 = new RecommendProduct("https://i.imgur.com/93PqquW.jpg", "Men Full Shirt", 1550, 2.5f);
+        RecommendProduct product3 = new RecommendProduct("https://i.imgur.com/GXRykZl.jpg", "Samsung Phones", 1450, 4.5f);
+        RecommendProduct product4 = new RecommendProduct("https://i.imgur.com/PlyjrVn.jpg", "iPhone", 1420, 5.0f);
+        RecommendProduct product5 = new RecommendProduct("https://i.imgur.com/xgIhhHH.jpg", "Men Jeans Pant", 1050, 1.5f);
+
+
+        List<RecommendProduct> mProducts = new ArrayList<>();
+        mProducts.add(product1);
+        mProducts.add(product2);
+        mProducts.add(product3);
+        mProducts.add(product4);
+        mProducts.add(product5);
+
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mRecommendsRecyclerView.setLayoutManager(layoutManager);
+
+        SpaceItemDecoration itemDecoration = new SpaceItemDecoration(20, 10);
+        mRecommendsRecyclerView.addItemDecoration(itemDecoration);
+
+        RecommendProductsAdapter adapter = new RecommendProductsAdapter(this, mProducts);
+        mRecommendsRecyclerView.setAdapter(adapter);
 
 
     }

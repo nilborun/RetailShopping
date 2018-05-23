@@ -1,15 +1,14 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.AppCompatImageView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.asksira.loopingviewpager.LoopingPagerAdapter;
+import com.example.lenovo.retailshoppingapp.model.CardModel;
+import com.example.lenovo.retailshoppingapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

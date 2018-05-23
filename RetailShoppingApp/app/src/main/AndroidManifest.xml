@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme.Base">
-        <activity android:name=".MainActivity">
+        <activity android:name=".UI.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserAccountActivity"
-            android:parentActivityName=".HomeActivity"
+            android:name=".UI.activity.UserAccountActivity"
+            android:parentActivityName=".UI.activity.HomeActivity"
             android:label="" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".UI.activity.HomeActivity"></activity>
     </application>
 
 </manifest>

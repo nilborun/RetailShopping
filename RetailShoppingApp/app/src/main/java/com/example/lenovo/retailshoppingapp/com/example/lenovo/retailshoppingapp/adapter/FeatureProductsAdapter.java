@@ -1,4 +1,4 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.com.example.lenovo.retailshoppingapp.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lenovo.retailshoppingapp.model.FeatureProduct;
+import com.example.lenovo.retailshoppingapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

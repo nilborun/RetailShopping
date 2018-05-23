@@ -1,4 +1,4 @@
-package com.example.lenovo.retailshoppingapp;
+package com.example.lenovo.retailshoppingapp.util;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

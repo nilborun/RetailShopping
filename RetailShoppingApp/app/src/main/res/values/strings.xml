@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Retail Shopping App</string>
+    <string name="title_tag">Happy Shopping!</string>
+    <string name="user_name">borun@email.com</string>
+    <string name="user_password">borun123</string>
+    <string name="title_logintab">Login</string>
+    <string name="title_registration_tab">Registration</string>
+    <string name="error_wrong_email">Your email is incorrect</string>
+    <string name="error_wrong_password">Your password is incorrect</string>
+    <string name="error_empty_password">Enter the password</string>
+    <string name="error_full_msg">Enter the correct email and password</string>
+    <string name="error_empty_email">Enter the email</string>
+    <string name="error_general_for_field">The filed can not be empty</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_home">Home</string>
+    <string name="nav_item_friends">Friends</string>
+    <string name="nav_item_notifications">Messages</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_friends</item>
+        <item>@string/nav_item_notifications</item>
+    </string-array>
+
+    <string name="title_messages">Messages</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_home">Home</string>
+    <string name="bdt_price_tag">ট</string>
+</resources>

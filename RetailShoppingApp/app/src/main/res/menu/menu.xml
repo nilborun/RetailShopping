@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/newuser"
+        android:icon="@drawable/ic_user"
+        android:title="new user"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/like"
+        android:icon="@drawable/ic_like"
+        android:title="like the product"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_shoppingcart"
+        android:title="shopping cart"
+        app:showAsAction="always"></item>
+
+</menu>

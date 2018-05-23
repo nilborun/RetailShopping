@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_user"
+        android:orderInCategory="100"
+        android:title="Home"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/menu_myaccount"
+        android:icon="@drawable/ic_user"
+        android:orderInCategory="100"
+        android:title="My Account"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/menu_wishlist"
+
+        android:icon="@drawable/ic_user"
+        android:orderInCategory="100"
+        android:title="new user"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/menu_cart"
+
+        android:icon="@drawable/ic_user"
+        android:orderInCategory="100"
+        android:title="Cart"
+        app:showAsAction="never"></item>
+    <item
+
+        android:id="@+id/menu_seting"
+        android:icon="@drawable/ic_user"
+        android:orderInCategory="100"
+        android:title="Setting"
+        app:showAsAction="never"></item>
+    <item
+
+        android:id="@+id/cart_home"
+        android:actionLayout="@layout/layout_badge"
+        android:icon="@drawable/ic_shoppingcart"
+        android:orderInCategory="100"
+        android:title="shopping cart"
+        app:showAsAction="always"></item>
+
+</menu>

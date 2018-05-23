@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.asksira.loopingviewpager.LoopingViewPager
+        android:id="@+id/viewpager_banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:autoScroll="true"
+        app:isInfinite="true"
+        app:scrollInterval="5000">
+
+    </com.asksira.loopingviewpager.LoopingViewPager>
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        app:piv_animationType="scale"
+        app:piv_dynamicCount="true"
+        app:piv_interactiveAnimation="true"
+        app:piv_selectedColor="@color/red"
+        app:piv_unselectedColor="@color/white"
+        app:piv_viewPager="@id/viewpager_banner"
+        attrs:piv_padding="12dp"
+        attrs:piv_radius="8dp" />
+
+
+</RelativeLayout>
